@@ -74,7 +74,7 @@ message(A\ variable\ reference\ is\ enabled:\ ${variable})
 # Escape sequence
 message(An\ escape\ sequence\ is\ enabled:\ a\tb)
 
-# List 
-foreach(v The;list;elements Not\;List\;Element)
+# List
+foreach(v The;list;elements Not\;List\;Element [Not;List;Element])
   message(${v})
 endforeach()
