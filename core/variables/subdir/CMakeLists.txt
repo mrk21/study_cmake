@@ -1,0 +1,6 @@
+message("\tdirectory subdir {")
+  display_set("\t\t")
+  set_value(a 2 "\t\t")
+  set_value(b 2 "\t\t")
+  display_set("\t\t")
+message("\t}")

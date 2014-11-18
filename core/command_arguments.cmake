@@ -1,3 +1,4 @@
+#!/usr/bin/env cmake -P
 # Command Arguments
 # see: http://www.cmake.org/cmake/help/v3.0/manual/cmake-language.7.html#command-arguments
 # The command arguments have 3 patterns as listed below:
@@ -14,7 +15,6 @@ set(variable 123)
 # see: http://www.cmake.org/cmake/help/v3.0/manual/cmake-language.7.html#bracket-argument
 # memo: The bracket argument can be used when CMake version is greater than or equal to 3.0.
 
-message(\n)
 message("## Bracket Argument")
 
 # Multiple line
