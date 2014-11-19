@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 
 ## ARGC, ARGV<i>, ARGV and ARGN ##
 # ARGC: Arguments size
-# ARG<i>: The i-th arguments; The first arguments is 0
+# ARG<i>: The i-th argument; The first argument number is 0
 # ARGV: All arguments
 # ARGN: Not named arguments
 # see: http://www.cmake.org/cmake/help/v3.0/command/macro.html
