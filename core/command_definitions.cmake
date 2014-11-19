@@ -1,4 +1,5 @@
 #!/usr/bin/env cmake -P
+cmake_minimum_required(VERSION 3.0)
 
 ## ARGC, ARGV<i>, ARGV and ARGN ##
 # ARGC: Arguments size
@@ -65,4 +66,33 @@ f4(a b c) #[[
     f3 ARGV element: b
     f3 ARGV element: c
     f4 value: 2
+]]
+
+message("")
+message("# function version")
+
+function(f5 value)
+  set(value 2)
+  message("f5 value: ${value}")
+  foreach(v IN LISTS ARGV)
+    message("f5 ARGV element: ${v}")
+  endforeach()
+endfunction()
+
+function(f6)
+  set(value 1)
+  message("f6 ARGV: ${ARGV}")
+  message("f6 value: ${value}")
+  f5(x y z)
+  message("f6 value: ${value}")
+endfunction()
+
+f6(a b c) #[[
+  f6 ARGV: a;b;c
+  f6 value: 1
+  f5 value: 2
+  f5 ARGV element: 2
+  f5 ARGV element: y
+  f5 ARGV element: z
+  f6 value: 1
 ]]
