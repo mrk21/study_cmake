@@ -8,8 +8,8 @@ function(qsort list_variable)
   unset(right)
   
   # termination condition
-  list(LENGTH list_value target_length)
-  if (${target_length} LESS 2)
+  list(LENGTH list_value length)
+  if(${length} LESS 2)
     return()
   endif()
   
@@ -18,7 +18,7 @@ function(qsort list_variable)
   list(REMOVE_AT list_value 0)
   
   # make a left partial list and a right partial list
-  foreach (v IN LISTS list_value)
+  foreach(v IN LISTS list_value)
     if(${v} LESS ${pivot})
       list(APPEND left ${v})
     else()

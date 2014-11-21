@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 # The normal variables and the cache variables have a same variable reference form,
-# and if they were both existed, then the variable reference priorities are listed below:
+# and if they both existed, then the variable reference priorities are listed below:
 # 1. Normal Variables
 # 2. Cache Variables
 # 
