@@ -11,6 +11,8 @@ cmake_minimum_required(VERSION 3.0)
 # 2. Removes the normal variable whose name is same, which in the current scope
 # 
 # Therefore, the variable reference immediately after the above processing always point to the cache variable.
+# 
+# see: http://www.cmake.org/cmake/help/v3.0/command/set.html
 
 message("## Set the normal variable after set the cache variable.")
 
