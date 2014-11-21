@@ -6,9 +6,11 @@ cmake_minimum_required(VERSION 3.0)
 # 1. Normal Variables
 # 2. Cache Variables
 # 
-# However, CMake will do processes listed below when a cache variable was set:
-# 1. Set the cache variable
-# 2. Remove the normal variable whose name is same, which in the current scope
+# However, CMake will do processing listed below when a cache variable was set:
+# 1. Sets the cache variable
+# 2. Removes the normal variable whose name is same, which in the current scope
+# 
+# Therefore, the variable reference immediately after the above processing always point to the cache variable.
 
 message("## Set the normal variable after set the cache variable.")
 
