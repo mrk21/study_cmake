@@ -1,0 +1,16 @@
+require 'fileutils'
+
+directory 'gen'
+
+task :default => 'gen' do |t|
+  Dir.chdir(t.prerequisites.first) do
+    sh 'cmake ..'
+    sh 'make'
+    sh './src1_bin'
+    sh './src2_bin'
+  end
+end
+
+task :clean do
+  FileUtils.rm_rf 'gen'
+end
