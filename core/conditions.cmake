@@ -2,16 +2,43 @@
 cmake_minimum_required(VERSION 3.0)
 
 
+message([[
+## Boolean constants
+
+The boolean constants are case-insenstive.
+
+### Truthy values
+
+* Non 0 numbers
+* TRUE
+* ON
+* YES
+* TRUE
+* Y
+]])
+
 if(true)
-  message(1)
+  message([[=> A "true" is truthy value]])
 endif()
 
-set(bool_value true)
+message([[
 
-if(bool_value)
-  message(1)
+### Falsy values
+
+* 0
+* OFF
+* NO
+* FALSE
+* N
+* IGNORE
+* NOTFOUND
+* XXX-NOTFOUND
+]])
+
+if(NOT false)
+  message([[=> A "false" is falsy value]])
 endif()
 
-if(${bool_value})
-  message(1)
+if(NOT package_notfound)
+  message([[=> A "package_notfound" is falsy value]])
 endif()
