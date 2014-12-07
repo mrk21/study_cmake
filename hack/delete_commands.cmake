@@ -5,12 +5,12 @@ cmake_minimum_required(VERSION 3.0.2)
 # The function to delete commands is implemented by storing in the `__command_<name>_deleted__` global property
 # whether the `<name>` command has been deleted and cheking that property.
 
-function(command_deleted_property_name result)
-  set(${result} __command_${name}_deleted__ PARENT_SCOPE)
+function(command_deleted_property_name command_name result)
+  set(${result} __command_${command_name}_deleted__ PARENT_SCOPE)
 endfunction()
 
 function(is_deleted_command name result)
-  command_deleted_property_name(prop_name)
+  command_deleted_property_name(${name} prop_name)
   if(NOT COMMAND ${name})
     set(${result} true PARENT_SCOPE)
     return()
@@ -20,9 +20,9 @@ function(is_deleted_command name result)
 endfunction()
 
 function(delete_command name)
-  command_deleted_property_name(prop_name)
+  command_deleted_property_name(${name} prop_name)
   function(${name})
-    message([[This command is deleted!]])
+    message(WARNING [[This command is deleted!]])
   endfunction()
   set_property(GLOBAL PROPERTY ${prop_name} true)
 endfunction()
