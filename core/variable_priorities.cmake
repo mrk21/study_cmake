@@ -1,5 +1,5 @@
 #!/usr/bin/env cmake -P
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0.2)
 
 # The normal variables and the cache variables have a same variable reference form,
 # and if they both existed, then the variable reference priorities are listed below:

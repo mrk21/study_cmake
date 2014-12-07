@@ -1,5 +1,5 @@
 #!/usr/bin/env cmake -P
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0.2)
 
 # The PARENT_SCOPE option of set() and unset() commands make it possible to edit variables of the parent context.
 # see: http://www.cmake.org/cmake/help/v3.0/command/set.html

@@ -1,6 +1,7 @@
 # Variables: binding and scope
+cmake_minimum_required(VERSION 3.0.2)
+
 # see: http://www.cmake.org/cmake/help/v3.0/manual/cmake-language.7.html#variables
-cmake_minimum_required(VERSION 3.0)
 set(indent "\t")
 
 macro(message_with_indent)

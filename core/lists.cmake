@@ -1,5 +1,5 @@
 #!/usr/bin/env cmake -P
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0.2)
 
 
 set(list_value a;b;c;d)

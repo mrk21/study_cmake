@@ -1,12 +1,12 @@
 #!/usr/bin/env cmake -P
+cmake_minimum_required(VERSION 3.0.2)
+
 # Command Arguments
 # see: http://www.cmake.org/cmake/help/v3.0/manual/cmake-language.7.html#command-arguments
 # The command arguments have 3 patterns as listed below:
 # - Bracket Argument
 # - Quated Argument
 # - Unquated Argument
-
-cmake_minimum_required(VERSION 3.0)
 
 set(variable 123)
 
