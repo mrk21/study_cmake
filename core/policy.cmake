@@ -51,6 +51,7 @@ cmake_minimum_required(VERSION 3.0.2)
 message([[## Policy setting by CMake versions]])
 cmake_policy(PUSH)
   set(policy_no CMP0050)
+  
   cmake_policy(VERSION 2.6)
   cmake_policy(GET ${policy_no} current_behavior)
   message("CMake 2.6 ${policy_no}: ${current_behavior}")

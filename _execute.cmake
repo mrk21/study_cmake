@@ -20,5 +20,5 @@ function(execute)
 endfunction()
 
 function(execute_cmake)
-  execute(${CMAKE_COMMAND} ..)
+  execute(${CMAKE_COMMAND} ${ARGV} ..)
 endfunction()
