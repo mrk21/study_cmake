@@ -17,6 +17,16 @@ function(execute)
     COMMAND ${ARGV}
     WORKING_DIRECTORY ${working_dir}
   )
+  
+  string(REGEX MATCHALL [[(RESULT|OUTPUT|ERROR)_VARIABLE;([a-zA-Z0-9_\-]+)]] matches "${ARGV}")
+  list(LENGTH matches length)
+  if(length GREATER 1)
+    math(EXPR end ${length}-1)
+    foreach(i RANGE 1 ${end} 2)
+      list(GET matches ${i} variable_name)
+      set(${variable_name} ${${variable_name}} PARENT_SCOPE)
+    endforeach()
+  endif()
 endfunction()
 
 function(execute_cmake)
