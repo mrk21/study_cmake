@@ -1,6 +1,8 @@
 #!/usr/bin/env cmake -P
 cmake_minimum_required(VERSION 3.0.2)
 
+message([[## math()]])
+
 function(verify_math expr)
   math(EXPR result "${expr}")
   message("${expr} = ${result}")
@@ -15,3 +17,9 @@ verify_math("8 >> 2")
 verify_math("12 % 10")
 verify_math("8 | 15")
 verify_math("8 & 15")
+
+message([[## cmake_host_system_information()]])
+
+cmake_host_system_information(RESULT cores QUERY NUMBER_OF_LOGICAL_CORES)
+
+message("cores: ${cores}")
