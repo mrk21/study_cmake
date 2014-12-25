@@ -23,8 +23,6 @@ endfunction()
 f1(a b c) # 3, a, a;b;c, a;b;c
 f2(a b c) # 3, a, a;b;c, b;c
 
-f1() # 
-
 
 ## The arguments of macro() are not variable ##
 # It is just a string replacement, and it must use in the form of variable reference.
