@@ -23,6 +23,8 @@ endfunction()
 f1(a b c) # 3, a, a;b;c, a;b;c
 f2(a b c) # 3, a, a;b;c, b;c
 
+f1() # 
+
 
 ## The arguments of macro() are not variable ##
 # It is just a string replacement, and it must use in the form of variable reference.
@@ -95,4 +97,103 @@ f6(a b c) #[[
   f5 ARGV element: y
   f5 ARGV element: z
   f6 value: 1
+]]
+
+message("")
+message("# ARGV<n> problem")
+
+function(f7)
+  message("f7 ARGC: ${ARGC}")
+  message("f7 ARGV: ${ARGV}")
+  message("f7 ARGN: ${ARGN}")
+  message("f7 ARGV0: ${ARGV0}")
+  message("f7 ARGV1: ${ARGV1}")
+endfunction()
+
+function(f8)
+  f7()
+endfunction()
+
+f8() #[[
+  f7 ARGC: 0
+  f7 ARGV: 
+  f7 ARGN: 
+  f7 ARGV0: 
+  f7 ARGV1: 
+]]
+message("")
+f8(a b) #[[
+  f7 ARGC: 0
+  f7 ARGV: 
+  f7 ARGN: 
+  f7 ARGV0: a
+  f7 ARGV1: b
+]]
+message("")
+
+macro(f9)
+  message("f9 ARGC: ${ARGC}")
+  message("f9 ARGV: ${ARGV}")
+  message("f9 ARGN: ${ARGN}")
+  message("f9 ARGV0: ${ARGV0}")
+  message("f9 ARGV1: ${ARGV1}")
+endmacro()
+
+macro(f10)
+  f9()
+endmacro()
+
+f10() #[[
+  f9 ARGC: 0
+  f9 ARGV: 
+  f9 ARGN: 
+  f9 ARGV0: 
+  f9 ARGV1: 
+]]
+message("")
+
+f10(a b) #[[
+  f9 ARGC: 0
+  f9 ARGV: 
+  f9 ARGN: 
+  f9 ARGV0: 
+  f9 ARGV1: 
+]]
+message("")
+
+function(f11)
+  set(args ${ARGV} "" "")
+  list(GET args 0 arg0)
+  list(GET args 1 arg1)
+  unset(args)
+  
+  message("f11 arg0: ${arg0}")
+  message("f11 arg1: ${arg1}")
+endfunction()
+
+function(f12)
+  f11()
+endfunction()
+
+f11() #[[
+  f11 arg0: 
+  f11 arg1: 
+]]
+message("")
+
+f11(a) #[[
+  f11 arg0: a
+  f11 arg1: 
+]]
+message("")
+
+f11(a b) #[[
+  f11 arg0: a
+  f11 arg1: b
+]]
+message("")
+
+f12(a b) #[[
+  f11 arg0: 
+  f11 arg1: 
 ]]
