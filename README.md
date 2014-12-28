@@ -1,4 +1,4 @@
 study_cmake
 ===========
 
-For studing cmake.
+For studying cmake.
