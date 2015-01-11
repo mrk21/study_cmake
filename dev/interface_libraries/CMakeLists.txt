@@ -13,7 +13,8 @@ else()
 endif()
 
 target_include_directories(mylib ${type}
-  ${PROJECT_SOURCE_DIR}
+  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
+  $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
 )
 target_compile_options(mylib ${type}
   -std=c++11
@@ -25,5 +26,7 @@ target_link_libraries(mylib ${type}
 add_executable(bin src.cpp)
 target_link_libraries(bin mylib)
 
+install(TARGETS bin DESTINATION bin EXPORT bin)
 install(TARGETS mylib DESTINATION lib EXPORT mylib)
+install(EXPORT mylib DESTINATION lib)
 install(DIRECTORY mylib DESTINATION include)

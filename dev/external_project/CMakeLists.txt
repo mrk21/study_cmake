@@ -1,17 +1,16 @@
 cmake_minimum_required(VERSION 3.0.2)
 
-include(ExternalProject)
-
-ExternalProject_Add(mylib_project
-  SOURCE_DIR ${PROJECT_SOURCE_DIR}/../interface_libraries
-  CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
-    -DUSE_LIBRARY=ON
+message("Preparing vendor...")
+try_compile(vendor_status
+  ${PROJECT_BINARY_DIR}/vendor
+  ${PROJECT_SOURCE_DIR}/vendor
+  vendor
+  OUTPUT_VARIABLE vendor_result
 )
-ExternalProject_Get_Property(mylib_project INSTALL_DIR)
-include_directories(${INSTALL_DIR}/include)
-link_directories(${INSTALL_DIR}/lib)
+if(NOT vendor_status)
+  message("${vendor_result}")
+endif()
+include(${PROJECT_BINARY_DIR}/vendor/mylib/lib/mylib.cmake)
 
 add_executable(bin src.cpp)
 target_link_libraries(bin mylib)
-add_dependencies(bin mylib_project)
